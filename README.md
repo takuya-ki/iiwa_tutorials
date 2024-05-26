@@ -80,33 +80,32 @@
 
 - Testing the moveit with GUI
   ```bash
-  ./utils/iiwa_moveit.sh
-  ```
-
-- Executing a simple motion
-  ```bash
-  ./utils/iiwa_singlecomm.sh
-  ```
-
-- Executing a repetitive motion
-  ```bash
-  ./utils/iiwa_loop.sh
-  ```
-
-- Executing a repetitive linear motion
-  ```bash
-  ./utils/iiwa_looplin.sh
-  ```
-
-- Executing a repetitive motion with ROS Action
-  ```bash
-  ./utils/iiwa_loopact.sh
+  xhost + && docker exec -it iiwa_container bash -it -c "roslaunch iiwa_tool_moveit moveit_planning_execution.launch sim:=false"
   ```
 
 - Executing a wiggle demonstration
   ```bash
-  ./utils/iiwa_wiggle.sh
+  xhost + && docker exec -it iiwa_container bash -it -c "rosrun iiwa_tutorials wiggle"
   ```
+  <img src=image/wiggle.gif width=200>
+
+- Executing a repetitive motion
+  ```bash
+  xhost + && docker exec -it iiwa_container bash -it -c "rosrun iiwa_tutorials sendmotion_loop"
+  ```
+  <img src=image/loop.gif width=200>
+
+- Executing a repetitive linear motion
+  ```bash
+  xhost + && docker exec -it iiwa_container bash -it -c "rosrun iiwa_tutorials sendmotion_loop_lin"
+  ```
+  <img src=image/looplin.gif width=200>
+
+- Executing a repetitive motion with ROS Action
+  ```bash
+  xhost + && docker exec -it iiwa_container bash -it -c "rosrun iiwa_tutorials sendmotion_loop_action"
+  ```
+  <img src=image/loopact.gif width=200>
 
 - Executing a pick-and-place demonstration
   ```bash
