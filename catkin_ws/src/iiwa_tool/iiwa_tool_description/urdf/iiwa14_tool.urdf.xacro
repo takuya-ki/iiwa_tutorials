@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+
+<!-- Here we define the robot, we named it "iiwa14_tool" -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="iiwa14_tool">
+  <!--Import the iiwa color -->
+  <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro"/>
+  <!--Import the iiwa14 macro -->
+  <xacro:include filename="$(find iiwa_description)/urdf/iiwa14.xacro"/>
+  <!--Import the ez gripper files-->
+  <xacro:include filename="$(find iiwa_tool_description)/urdf/fusg_articulated.urdf.xacro"/>
+  
+  <!--  Arguments for the iiwa14 macro  -->
+  <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+  <xacro:arg name="robot_name" default="iiwa"/>
+  
+  <!--  Define the 3D space -->
+  <link name="world"/>
+  
+  <gazebo reference="world">
+    <static>true</static>
+  </gazebo>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base"/>
+  </joint>
+
+  <link name="base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/base.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.06" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.4 0.4 0.10"/>
+      </geometry>
+    </collision>
+<!--
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/base.stl"/>
+      </geometry>
+    </collision>
+-->
+    <inertial>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="mount_joint" type="fixed">
+    <parent link="base"/>
+    <child link="mount"/>
+  </joint>
+
+  <link name="mount">
+    <visual>
+      <origin xyz="0 0 0.145" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/mount.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.565" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.25 0.25 0.82"/>
+      </geometry>
+    </collision>
+<!--
+    <collision>
+      <origin xyz="0 0 0.12" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/mount.stl"/>
+      </geometry>
+    </collision>
+-->
+    <inertial>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="table_joint" type="fixed">
+    <parent link="world"/>
+    <child link = "table"/>
+    <origin xyz="0.6 0.6 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="table">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/conveyor.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.455" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.445 3.0 0.91"/>
+      </geometry>
+    </collision>
+<!--
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/conveyor.stl"/>
+      </geometry>
+    </collision>
+-->
+    <inertial>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="camera_unit_joint" type="fixed">
+    <parent link="table"/>
+    <child link = "camera_unit"/>
+    <origin xyz="0.22 0.65 0.9" rpy="0 0 3.14"/>
+  </joint>
+
+  <link name="camera_unit">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/camera_unit_simple.dae"/>
+      </geometry>
+    </visual>  
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/camera_unit_simple.stl"/>
+      </geometry>
+    </collision>
+<!--
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>  
+-->
+    <inertial>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="heater_unit_joint" type="fixed">
+    <parent link="table"/>
+    <child link = "heater_unit"/>
+    <origin xyz="0.22 0.5 0.9" rpy="0 0 3.14"/>
+  </joint>
+
+  <link name="heater_unit">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/heater_unit_simple.dae"/>
+      </geometry>
+    </visual>  
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/heater_unit_simple.stl"/>
+      </geometry>
+    </collision>
+<!--
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>  
+-->
+    <inertial>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0"/>
+    </inertial>
+  </link>
+
+  <!-- Here we insert an iiwa14 robot in the scene, it's origin is just on top of the box previously defined. You can use 0,0,0 if you don't have that. -->
+  <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="mount">
+    <origin xyz="0 0 0.978" rpy="0 0 0"/>
+  </xacro:iiwa14>
+  
+  <!-- Add the gripper. Called from the file imported at the top of this code.-->
+  <softmatics_gripper prefix="tool" parent_link="iiwa_link_ee">
+    <origin xyz="0 0 0" rpy="0 0 ${PI/2}"/>
+  </softmatics_gripper>
+
+  <!--  Here we define another dummy joint. It is placed at the end of the tool, so we can then attach a frame at its TCP for control -->
+  <joint name="tool_tip_joint" type="fixed">
+    <parent link="iiwa_link_ee"/>
+    <child link="tool_link_ee"/>
+    <origin xyz="0 0 0.25" rpy="${PI/2} -${PI/2} 0"/>
+  </joint>
+
+  <!--  The TCP frame is here defined -->
+  <link name="tool_link_ee"/>
+</robot> 
