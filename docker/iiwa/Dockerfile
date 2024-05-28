@@ -49,10 +49,11 @@ RUN mkdir -p /catkin_ws/src && \
     echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc && \
     echo "export ROS_PACKAGE_PATH=\${ROS_PACKAGE_PATH}:/catkin_ws" >> ~/.bashrc && \
     echo "export ROS_WORKSPACE=/catkin_ws" >> ~/.bashrc
+RUN pip install serial
 
 # Generates bash commands
 WORKDIR /catkin_ws/src/
 RUN echo "roslaunch iiwa_tool_moveit moveit_planning_execution.launch sim:=false" >> ~/.bash_history
 RUN echo "roslaunch iiwa_controller iiwa_commander.launch sim:=false" >> ~/.bash_history
 RUN echo "roslaunch iiwa_controller iiwa_commander.launch sim:=true" >> ~/.bash_history
-RUN echo "rpython3 dummy/dummy_socket_client.py" >> ~/.bash_history
+RUN echo "python3 dummy/dummy_socket_client.py" >> ~/.bash_history

@@ -38,7 +38,7 @@
       <img src=image/pendant_network.jpg width=250>
     - The ROS_IP and ROS_MASTER_URI must be set as below in .bashrc  
       <img src=image/bashrc.png width=320>
-4. Build the docker environment as below (if you use the docker, this must be set in docker contenair)  
+4. Build the docker environment as below (if you use the docker, this must be set in docker container)  
     ```bash
     sudo apt install byobu && git clone git@github.com:takuya-ki/iiwa_tutorials.git --depth 1 && cd iiwa_tutorials && COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker compose build --no-cache --parallel  
     ```
@@ -53,7 +53,7 @@
   docker compose up
   ```
 
-2. ```roscore``` on the host machine
+2. ```roscore``` on the host machine or in the docker container
   - This application requires having a ROS Master running on the ROS machine connected to the cabinet. ([iiwa_stack wiki](https://github.com/IFL-CAMP/iiwa_stack/wiki))
 
 ### Simulation

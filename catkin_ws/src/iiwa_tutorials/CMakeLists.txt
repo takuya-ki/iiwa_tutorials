@@ -39,20 +39,6 @@ target_link_libraries(
 )
 
 add_executable(
-  sendmotion_singlecomm
-    src/sendmotion_singlecomm.cpp
-)
-add_dependencies(
-  sendmotion_singlecomm
-    iiwa_msgs_generate_messages_cpp
-    ${catkin_EXPORTED_TARGETS}
-)
-target_link_libraries(
-  sendmotion_singlecomm
-    ${catkin_LIBRARIES}
-)
-
-add_executable(
   sendmotion_loop
     src/sendmotion_loop.cpp
 )
