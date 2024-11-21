@@ -77,7 +77,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          camera_unit:
+          conveyor:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -151,16 +151,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          table:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           tool_link_ee:
             Alpha: 1
             Show Axes: false
             Show Trail: false
           tool_mount:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tv:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -219,7 +219,7 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          camera_unit:
+          conveyor:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -293,16 +293,16 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          table:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
           tool_link_ee:
             Alpha: 1
             Show Axes: false
             Show Trail: false
           tool_mount:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tv:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -332,25 +332,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 4.71505069732666
+      Distance: 5.447381019592285
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.11356700211763382
-        Y: 0.10592000186443329
-        Z: 2.2351800055275817e-7
+        X: 1.1398497819900513
+        Y: 0.4542922377586365
+        Z: 4.6193656544346595e-7
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5097969770431519
+      Pitch: 0.1547970026731491
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 5.659949779510498
+      Yaw: 2.8367650508880615
     Saved: ~
 Window Geometry:
   Displays:
