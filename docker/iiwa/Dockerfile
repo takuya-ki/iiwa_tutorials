@@ -31,6 +31,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-melodic-robot-state-publisher \
     ros-melodic-genpy \
     ros-melodic-realsense2-camera \
+    ros-melodic-soem \
+    ros*controller* \
     python-catkin-tools \
     python-rosdep \
     build-essential \
