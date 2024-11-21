@@ -30,22 +30,16 @@
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_2" link2="tool_link" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="world" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_4" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_3" link2="tool_link" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="world" reason="Never" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_5" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_4" link2="tool_link" reason="Never" />
     <disable_collisions link1="iiwa_link_5" link2="iiwa_link_6" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_5" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_5" link2="tool_link" reason="Never" />
     <disable_collisions link1="iiwa_link_6" link2="iiwa_link_7" reason="Adjacent" />
-    <disable_collisions link1="iiwa_link_6" link2="tool_link" reason="Never" />
-    <disable_collisions link1="iiwa_link_7" link2="tool_link" reason="Adjacent" />
 </robot>

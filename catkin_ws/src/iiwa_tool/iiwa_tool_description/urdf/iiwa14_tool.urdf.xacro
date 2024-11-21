@@ -6,8 +6,6 @@
   <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro"/>
   <!--Import the iiwa14 macro -->
   <xacro:include filename="$(find iiwa_description)/urdf/iiwa14.xacro"/>
-  <!--Import the ez gripper files-->
-  <xacro:include filename="$(find iiwa_tool_description)/urdf/fusg_articulated.urdf.xacro"/>
   
   <!--  Arguments for the iiwa14 macro  -->
   <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
@@ -92,13 +90,13 @@
     </inertial>
   </link>
 
-  <joint name="table_joint" type="fixed">
+  <joint name="conveyor_joint" type="fixed">
     <parent link="world"/>
-    <child link = "table"/>
-    <origin xyz="0.6 0.6 0" rpy="0 0 0"/>
+    <child link = "conveyor"/>
+    <origin xyz="0.6 1.7 0" rpy="0 0 0"/>
   </joint>
 
-  <link name="table">
+  <link name="conveyor">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -129,33 +127,28 @@
     </inertial>
   </link>
 
-  <joint name="camera_unit_joint" type="fixed">
-    <parent link="table"/>
-    <child link = "camera_unit"/>
-    <origin xyz="0.22 0.65 0.9" rpy="0 0 3.14"/>
+  <joint name="round_table_joint" type="fixed">
+    <parent link="world"/>
+    <child link = "round_table"/>
+    <origin xyz="0 -0.7 0.485" rpy="0 0 0"/>
   </joint>
 
-  <link name="camera_unit">
+  <link name="round_table">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://iiwa_tool_description/meshes/visual/camera_unit_simple.dae"/>
+        <cylinder length="0.05" radius="0.43"/>
       </geometry>
-    </visual>  
+      <material name="green">
+        <color rgba="0.0 0.8 0.0 0.5"/>
+      </material>
+    </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://iiwa_tool_description/meshes/collision/camera_unit_simple.stl"/>
+        <cylinder length="0.05" radius="0.43"/>
       </geometry>
     </collision>
-<!--
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.1 0.1 0.1"/>
-      </geometry>
-    </collision>  
--->
     <inertial>
       <origin xyz="0 0 1" rpy="0 0 0"/>
       <mass value="1"/>
@@ -167,31 +160,34 @@
   </link>
 
   <joint name="heater_unit_joint" type="fixed">
-    <parent link="table"/>
+    <parent link="conveyor"/>
     <child link = "heater_unit"/>
-    <origin xyz="0.22 0.5 0.9" rpy="0 0 3.14"/>
+    <origin xyz="0.242 -1.4 0.8" rpy="0 0 1.57"/>
   </joint>
 
   <link name="heater_unit">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://iiwa_tool_description/meshes/visual/heater_unit_simple.dae"/>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/heater_unit.stl"/>
       </geometry>
+      <material name="gray">
+        <color rgba="0.7 0.7 0.7 0.2"/>
+      </material>
     </visual>  
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0.25 0.32" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://iiwa_tool_description/meshes/collision/heater_unit_simple.stl"/>
+        <box size="0.22 0.445 0.4"/>
       </geometry>
     </collision>
 <!--
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.1 0.1 0.1"/>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/heater_unit.stl"/>
       </geometry>
-    </collision>  
+    </collision>
 -->
     <inertial>
       <origin xyz="0 0 1" rpy="0 0 0"/>
@@ -209,11 +205,73 @@
   </xacro:iiwa14>
   
   <!-- Add the gripper. Called from the file imported at the top of this code.-->
-  <softmatics_gripper prefix="tool" parent_link="iiwa_link_ee">
-    <origin xyz="0 0 0" rpy="0 0 ${PI/2}"/>
-  </softmatics_gripper>
+  <link name="tool_mount">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 ${-pi/2} ${pi/2}"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/iiwa_tool_mount.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.8 0.8 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 ${-pi/2} ${pi/2}"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/iiwa_tool_mount.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="eef_base_joint" type="fixed">
+    <origin xyz="0 0 0.0095" rpy="0 0 0"/>
+    <parent link="tool_mount"/>
+    <child link="eef_base"/>
+  </joint>
+  <link name="eef_base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/hande_base.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.8 0.8 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/hande_base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="eef_joint" type="fixed">
+    <origin xyz="0 0 0.0015" rpy="0 0 0"/>
+    <parent link="eef_base"/>
+    <child link="eef"/>
+  </joint>
+  <link name="eef">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/hande.stl"/>
+      </geometry>
+      <material name="">
+        <color rgba="0.8 0.8 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/hande.stl"/>
+      </geometry>
+    </collision>
+  </link>  
 
-  <!--  Here we define another dummy joint. It is placed at the end of the tool, so we can then attach a frame at its TCP for control -->
+  <joint name="tool_joint" type="fixed">
+    <parent link="iiwa_link_ee"/>
+    <child link="tool_mount"/>
+    <origin xyz="0 0 0.001" rpy="0 0 ${PI/2}"/>
+  </joint>
+
   <joint name="tool_tip_joint" type="fixed">
     <parent link="iiwa_link_ee"/>
     <child link="tool_link_ee"/>
