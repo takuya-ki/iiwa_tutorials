@@ -10,7 +10,7 @@
     <arg name="hardware_interface" default="PositionJointInterface"/>
     <!-- name of the iiwa to use, useful in case of multiple robots. Every robot is gonna have its nodees/topics under a namespace with the same name. -->
     <arg name="robot_name" default="iiwa"/>
-    <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
+    <!-- Model of the iiwa to use : iiwa14 -->
     <arg name="model" default="iiwa14"/>
     <arg name="rviz" default="true" />
     
