@@ -45,8 +45,6 @@
 
 ## Usage with docker
 
-### Using utility scripts
-
 1. Build and run the docker environment
 - Create and start docker containers in the initially opened terminal
   ```bash
@@ -60,18 +58,10 @@
 
 3. Run a demonstration on the host machine  
 
-- Executing a pick-and-place demonstration
+- Testing the moveit with GUI
   ```bash
-  ./utils/iiwa_pp_fake.sh
+  xhost + && docker exec -it iiwa_container bash -it -c "roslaunch iiwa_tool_moveit moveit_planning_execution.launch sim:=true"
   ```
-  - Initialize the eef pose
-    ```bash
-    initialize
-    ```
-  - Demonstrate pick-and-place of a object
-    ```bash
-    pp
-    ```
 
 ### Real robot
 
@@ -107,20 +97,7 @@
   ```
   <img src=image/loopact.gif width=200>
 
-- Executing a pick-and-place demonstration
-  ```bash
-  ./utils/iiwa_pp.sh
-  ```
-  - Initialize the eef pose
-    ```bash
-    initialize
-    ```
-  - Demonstrate pick-and-place of a object
-    ```bash
-    pp
-    ```
-
-### Successfull termination
+### Required procedure for successfull termination
 
 1. Terminate the demonstration
 2. Stop the application ROSSmartServo on the pendant

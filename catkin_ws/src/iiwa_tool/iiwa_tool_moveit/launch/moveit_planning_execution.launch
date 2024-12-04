@@ -55,7 +55,7 @@
             <arg name="robot_name" value="$(arg robot_name)"/>
             <arg name="model" value="$(arg model)" />
         </include>
-        
+
         <include if="$(arg rviz)" file="$(find iiwa_tool_moveit)/launch/moveit_rviz.launch">
             <arg name="config" value="true"/>
         </include>

@@ -1,4 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <node pkg="rostopic" type="rostopic" name="joint_pub" args="pub /iiwa/command/JointPosition iiwa_msgs/JointPosition '{header: auto, position: {a1: 0, a2: 0, a3: 0, a4: 0, a5: 0, a6: 0, a7: 0}}' -1"/>
-</launch>

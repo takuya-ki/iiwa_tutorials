@@ -45,7 +45,7 @@ RUN mkdir -p /tmp/
 RUN mkdir -p /catkin_ws/src && \
     cd /catkin_ws/src && \
     /bin/bash -c "source /opt/ros/melodic/setup.bash; catkin_init_workspace" && \
-    cd /catkin_ws && rosdep init && \
+    cd /catkin_ws && rosdep init && rosdep update && \
     /bin/bash -c "source /opt/ros/melodic/setup.bash; catkin build" && \
     echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc && \
     echo "source /catkin_ws/devel/setup.bash" >> ~/.bashrc && \
@@ -56,6 +56,8 @@ RUN pip install serial
 # Generates bash commands
 WORKDIR /catkin_ws/src/
 RUN echo "roslaunch iiwa_tool_moveit moveit_planning_execution.launch sim:=false" >> ~/.bash_history
-RUN echo "roslaunch iiwa_controller iiwa_commander.launch sim:=false" >> ~/.bash_history
-RUN echo "roslaunch iiwa_controller iiwa_commander.launch sim:=true" >> ~/.bash_history
-RUN echo "python3 dummy/dummy_socket_client.py" >> ~/.bash_history
+RUN echo "roslaunch iiwa_tool_moveit moveit_planning_execution.launch sim:=true" >> ~/.bash_history
+RUN echo "rosrun iiwa_tutorials wiggle" >> ~/.bash_history
+RUN echo "rosrun iiwa_tutorials sendmotion_loop" >> ~/.bash_history
+RUN echo "rosrun iiwa_tutorials sendmotion_loop_lin" >> ~/.bash_history
+RUN echo "rosrun iiwa_tutorials sendmotion_loop_action" >> ~/.bash_history
