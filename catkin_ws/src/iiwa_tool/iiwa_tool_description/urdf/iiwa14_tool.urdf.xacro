@@ -199,6 +199,38 @@
     </inertial>
   </link>
 
+  <joint name="softjig_joint" type="fixed">
+    <parent link="frame"/>
+    <child link = "softjig"/>
+    <origin xyz="0.45 0 0" rpy="1.57 0 3.14"/>
+  </joint>
+
+  <link name="softjig">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/visual/softjig.stl"/>
+      </geometry>
+      <material name="gray_dark">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>  
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iiwa_tool_description/meshes/collision/softjig.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia
+        ixx="1.0" ixy="0.0" ixz="0.0"
+        iyy="1.0" iyz="0.0"
+        izz="1.0"/>
+    </inertial>
+  </link>
+
   <joint name="round_table_joint" type="fixed">
     <parent link="world"/>
     <child link = "round_table"/>
