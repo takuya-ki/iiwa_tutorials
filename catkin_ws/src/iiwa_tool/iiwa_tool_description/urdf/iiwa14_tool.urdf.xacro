@@ -297,7 +297,7 @@
 
   <!-- Here we insert an iiwa14 robot in the scene, it's origin is just on top of the box previously defined. You can use 0,0,0 if you don't have that. -->
   <xacro:iiwa14 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="mount">
-    <origin xyz="0 0 0.978" rpy="0 0 0"/>
+    <origin xyz="0 0 0.978" rpy="0 0 3.14"/>
   </xacro:iiwa14>
   
   <!-- Add the gripper. Called from the file imported at the top of this code.-->
@@ -341,7 +341,7 @@
     </collision>
   </link>
   <joint name="eef_joint" type="fixed">
-    <origin xyz="0 0 0.0015" rpy="0 0 0"/>
+    <origin xyz="0 0 0.0015" rpy="0 0 3.14"/>
     <parent link="eef_base"/>
     <child link="eef"/>
   </joint>
