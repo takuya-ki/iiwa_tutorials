@@ -170,7 +170,7 @@
   <joint name="iiwa2_joint" type="fixed">
     <parent link="frame"/>
     <child link = "iiwa2"/>
-    <origin xyz="0.35 0 0" rpy="1.57 0 0"/>
+    <origin xyz="0.30 0.34 0" rpy="1.57 0 0"/>
   </joint>
 
   <link name="iiwa2">
@@ -186,7 +186,7 @@
     <collision>
       <origin xyz="0 0.8 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 1.6 0.2"/>
+        <box size="0.25 1.5 0.25"/>
       </geometry>
     </collision>
     <inertial>
