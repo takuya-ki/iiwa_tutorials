@@ -312,9 +312,9 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 ${-pi/2} ${pi/2}"/>
+      <origin xyz="0 0 0.001" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://iiwa_tool_description/meshes/collision/iiwa_tool_mount.stl"/>
+        <cylinder length="0.016" radius="0.038"/>
       </geometry>
     </collision>
   </link>
@@ -334,9 +334,9 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0.0095" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://iiwa_tool_description/meshes/collision/hande_base.stl"/>
+        <cylinder length="0.022" radius="0.038"/>
       </geometry>
     </collision>
   </link>
