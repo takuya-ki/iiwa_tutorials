@@ -32,7 +32,7 @@
     <img src=image/X66.jpg width=150>  
 3. Set the network configuration as below  
     <img src=image/network.png width=280>  
-    - The ros node expects to reach the robot at the IP `172.31.1.147`  
+    - The ROS node expects to reach the robot at the IP `172.31.1.147`  
     - The ROS nodes on the robot side expects to reach the ROS master at the IP `172.31.1.150`  
     - This is set with the pendant as below  
       <img src=image/pendant_network.jpg width=250>
