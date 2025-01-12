@@ -56,7 +56,7 @@
 
 ### Simulation
 
-3. Run a demonstration on the host machine  
+3. Run a demonstration on the host machine (when you try only the simulation, please commentout ROS_MASTER_URI and ROS_HOSTNAME in docker-compose.yml)  
 
 - Testing the moveit with GUI
   ```bash
