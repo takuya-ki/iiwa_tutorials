@@ -17,25 +17,25 @@
     <disable_collisions link1="iiwa_link_0" link2="iiwa_link_2" reason="Never" />
     <disable_collisions link1="iiwa_link_0" link2="iiwa_link_3" reason="Never" />
     <disable_collisions link1="iiwa_link_0" link2="iiwa_link_4" reason="Never" />
-    <disable_collisions link1="iiwa_link_0" link2="world" reason="Adjacent" />
+    <disable_collisions link1="iiwa_link_0" link2="iiwa_floating_link" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_2" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_3" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_4" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_1" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_1" link2="world" reason="Never" />
+    <disable_collisions link1="iiwa_link_1" link2="iiwa_floating_link" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_3" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_4" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_2" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_2" link2="world" reason="Never" />
+    <disable_collisions link1="iiwa_link_2" link2="iiwa_floating_link" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_4" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_5" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_3" link2="iiwa_link_7" reason="Never" />
-    <disable_collisions link1="iiwa_link_3" link2="world" reason="Never" />
+    <disable_collisions link1="iiwa_link_3" link2="iiwa_floating_link" reason="Never" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_5" reason="Adjacent" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_6" reason="Never" />
     <disable_collisions link1="iiwa_link_4" link2="iiwa_link_7" reason="Never" />
