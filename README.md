@@ -40,7 +40,7 @@
       <img src=image/bashrc.png width=320>
 4. Build the docker environment as below (if you use the docker, this must be set in docker container)  
     ```bash
-    sudo apt install byobu && git clone git@github.com:takuya-ki/iiwa_tutorials.git --depth 1 && cd iiwa_tutorials && COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker compose build --no-cache --parallel  
+    sudo apt install byobu && git clone git@github.com:takuya-ki/iiwa_tutorials.git --recursive --depth 1 && cd iiwa_tutorials && COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker compose build --no-cache --parallel  
     ```
 
 ## Usage with docker
@@ -60,7 +60,7 @@
 
 - Testing the moveit with GUI
   ```bash
-  xhost + && docker exec -it iiwa_container bash -it -c "roslaunch iiwa_tool_moveit moveit_planning_execution.launch sim:=true"
+  xhost + && docker exec -it iiwa_container bash -it -c "export ROS_MASTER_URI=http://localhost:11311 && export ROS_HOSTNAME=localhost && roslaunch iiwa_tool_moveit moveit_planning_execution.launch sim:=true"
   ```
 
 ### Real robot

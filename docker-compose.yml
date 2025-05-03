@@ -22,6 +22,7 @@ services:
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
             # ros catkin dir
             - ./catkin_ws/src:/catkin_ws/src
+            - ./docker/iiwa/config.yaml:/root/.ignition/fuel/config.yaml
         privileged: true
         tty: true
         network_mode: host
