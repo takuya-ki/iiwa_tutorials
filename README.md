@@ -17,10 +17,9 @@
 
 ### LBR iiwa 14 R820
 
-- [Ubuntu 18.04 PC](https://ubuntu.com/certified/laptops?q=&limit=20&vendor=Dell&vendor=Lenovo&vendor=HP&release=18.04+LTS)
-  - [ROS Melodic](https://wiki.ros.org/melodic/Installation/Ubuntu)
-  - [iiwa_stack](https://github.com/IFL-CAMP/iiwa_stack)
-  - [Byobu](https://www.byobu.org/)
+- [ROS Noetic](https://wiki.ros.org/noetic/Installation/Ubuntu)
+- [iiwa_stack](https://github.com/IFL-CAMP/iiwa_stack)
+- [Byobu](https://www.byobu.org/)
 - [LBR iiwa](https://www.kuka.com/en-us/products/robotics-systems/industrial-robots/lbr-iiwa) 
 
 ## Installation
