@@ -1,4 +1,0 @@
-[submodule "catkin_ws/src/hand-e"]
-	path = catkin_ws/src/hand-e
-	url = git@github.com:takuya-ki/hand-e.git
-	branch = noetic-devel
